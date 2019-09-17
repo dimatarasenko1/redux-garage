@@ -38,6 +38,7 @@
     "redux-promise": "^0.6.0",
     "redux-thunk": "^2.3.0"
   },
+  "homepage": "https://dimatarasenko1.github.io/redux-garage/",
   "scripts": {
     "start": "webpack-dev-server --mode development",
     "lint": "eslint './src/**/*.js*'",
