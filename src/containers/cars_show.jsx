@@ -7,12 +7,12 @@ import { fetchCar } from '../actions/index';
 import Aside from '../components/aside';
 
 class CarsShow extends Component {
-  // componentWillMount() {
-  //   const { car, fetchCar, params } = this.props;
-  //   if (!car) {
-  //     fetchCar(params.id);
-  //   };
-  // }
+  componentWillMount() {
+    const { car, fetchCar, match } = this.props;
+    if (!car) {
+      fetchCar(match.params.id);
+    }
+  }
 
   render () {
     const { car, garage } = this.props;
@@ -54,7 +54,6 @@ function mapStateToProps(state, ownProps) {
   const correctCar = () => {
     return state.cars.find(car => car.id === id);
   };
-  console.log(correctCar());
   return {
     garage: state.garage,
     car: correctCar()
