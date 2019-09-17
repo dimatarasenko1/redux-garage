@@ -11,9 +11,11 @@ import { createHistory as history } from 'history';
 
 import '../assets/stylesheets/application.scss';
 
+import { reducer as formReducer } from 'redux-form';
 // TODO: Import Core Components
 import carsIndex from './containers/cars_index';
 import carsShow from './containers/cars_show';
+import carsNew from './containers/cars_new';
 
 import carsReducer from './reducers/cars_reducer';
 import garageReducer from './reducers/garage_reducer';
@@ -26,7 +28,8 @@ const initialState = {
 
 const reducers = combineReducers({
   garage: garageReducer,
-  cars: carsReducer
+  cars: carsReducer,
+  form: formReducer
 });
 
 const middlewares = applyMiddleware(reduxPromise, logger);
@@ -42,6 +45,7 @@ if (root) {
         <div className="view-container">
           <Switch>
             <Route path="/" exact component={carsIndex} />
+            <Route path="/cars/new" exact component={carsNew} />
             <Route path="/cars/:id" component={carsShow} />
           </Switch>
         </div>
